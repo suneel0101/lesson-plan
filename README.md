@@ -171,9 +171,12 @@ HINT: Here's the relevant documentation on csv: https://docs.python.org/2/librar
 >>> len([row for row in rows if row['Release Year'] == '1981'])
 61
 ```
+
 2b. How many songs are from before 1984
+111
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] < '1981'])
+111
 
 3. What is the earliest release year in the data?
 HINT: You might have to account for/clean up dirty data
@@ -199,9 +202,11 @@ ValueError: invalid literal for int() with base 10: 'SONGFACTS.COM'
 >>> min(release_years)
 1071
 ```
+
 This doesn't make any sense! Exclude that!
 
 ### Third pass
+```
 >>> def is_valid_year(value):
 ...     try:
 ...         val = int(value)
@@ -213,9 +218,11 @@ This doesn't make any sense! Exclude that!
 >>> release_years = [int(row['Release Year']) for row in rows if is_valid_year(row['Release Year'])]
 >>> min(release_years)
 1955
+```
+
 That makes much more sense!
 
-```
+
 4. What are the top 20 songs by play count
 HINT: use builtin sorted() function
 ```
