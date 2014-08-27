@@ -44,6 +44,12 @@ $ python test.py
 Hello, world!
 
 6:15
+# Get onto our chatroom
+http://us19.chatzy.com/72537354013765
+
+# How to Create a Gist
+
+
 # Python Warm Up and Diagnostic
 - Let's start with a few basic Python problems to warm up and also to get a sense of your Python level
 
@@ -274,6 +280,8 @@ What are we going to learn?
 >>> rock_data = read_csv('rock.csv')
 # rock data is a DataFrame, super powerful data structure that has some of the traits of lists but with a lot more functionality, as we'll find out
 # DataFrame is a 2-dimensional labeled data structure with columns of potentially different types. You can think of it like a spreadsheet or SQL table, or a dict of Series objects.
+- I can see columns
+>>> rock_data.columns
 - I can slice
 >>> rock_data[:20]
 # I can limit it to just the columns I care about, still a DataFrame
@@ -378,6 +386,54 @@ e.g.:
 - learn about groupby, concat, merge, stat
 
 ### Exercises
+Download csv from https://github.com/suneel0101/lesson-plan/blob/master/crunchbase_monthly_export.csv
+
+- Will require data cleaning using apply()
+In [42]: cb[' funding_total_usd '][0]
+Out[42]: ' 750,000 '
+
+In [43]: cb[' funding_total_usd '][1]
+Out[43]: ' 1,750,000 '
+
+In [44]: cb[' funding_total_usd '][9]
+Out[44]: ' -   '
+
+- Creating new columns
+- Getting value_counts
+- Filtering
+- Plotting
+
+1 - What are the top 10 highest funded companies?
+```
+In [24]: def clean_amount(amount):
+   ....:     if '-' in amount:
+   ....:        return 0
+   ....:     else:
+   ....:        return int(amount.strip().replace(',', ''))
+   ....:
+>>> cb['clean_total' = cb[' funding_total_usd '].apply(clean_amount)
+In [26]: cb['Clean Funding Total'] = cb[' funding_total_usd '].apply(clean_amount)
+In [50]: cb[['name', 'clean_total']].sort(columns=['clean_total'], ascending=False)
+```
+
+2 - How many companies are from New York?
+```python
+>>> new_york = cb[cb["city"] == "New York"]
+>>> len(new_york.index)
+```
+3 - What are the most popular Markets?
+```python
+cb[' market '].value_counts()
+```
+
+4 - Plot # of companies against region, limiting to 20 most popular regions
+```python
+cb['region'].value_counts()[:20].plot(color='red', kind='bar')
+```
+To extract more granular insights, here are some follow up questions we could ask.
+I'll leave that as an exercise for another time.
+- Filter based on when it was funded and plot it
+- Filter based on funding level and plot it
 
 ## What We Learned
 
@@ -403,4 +459,3 @@ e.g.:
 - plotting
 - cleaning data
 - value_counts
-- groupby
