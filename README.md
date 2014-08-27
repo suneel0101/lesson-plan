@@ -261,6 +261,8 @@ What are we going to learn?
 - how to filter and slice DataFrames
 - how to get aggregate counts
 - how to apply functions to entire columns
+- string methods
+- some data cleaning using `apply`
 
 1. How to read in csvs and find out how many songs from 1981
 ```python
@@ -281,6 +283,8 @@ Top 10 most prolific artists?
 ```python
 >>> rock_data['ARTIST CLEAN'].value_counts()
 >>> rock_data['ARTIST CLEAN'].values_counts()[:10]
+>>> rock_data['ARTIST CLEAN'].values_counts().head()
+also tail()!
 ```
 
 3. How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
@@ -290,3 +294,11 @@ Top 10 most prolific artists?
 >>> contains_rock = lowercase_song_titles.str.contains('rock')
 >>> contains_rock[contains_rock]
 ```
+Discuss and demonstrate [5]:
+-startswith
+-lower
+-upper
+-strip
+
+4. What is the earliest release year in the data?
+We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
