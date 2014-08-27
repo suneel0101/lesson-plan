@@ -29,7 +29,7 @@
 ```bash
 conda create -n ga-python pandas matplotlib ipython
 source activate ga-python
-python
+ipython -pylab
 >>> import pandas
 ```
 
