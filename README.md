@@ -3,7 +3,7 @@ By the end of the class you should have
 - learn some more advanced Python techniques
 - become comfortable with the Pandas data analysis library
 - one of the most important things to know is that 90% of becoming an advanced programmer is being able to learn and use new libraries (rephrase?)
-
+- numpy vs scipy: http://stackoverflow.com/questions/11077023/what-are-the-differences-between-pandas-and-numpyscipy-in-python
 Anytime I've taken a workshop, I found the teacher lectured too much and I didn't get enough hands-on experience.
 I'm a big believer in learning by doing, so we'll be coding a lot of the workshop.
 
@@ -144,6 +144,7 @@ python
 ## Objectives
 - use csv library to read in data
 - use pure Python techniques to extract insights about the data
+- start getting acquainted with the Pandas library
 
 ### Exercises
 
@@ -252,7 +253,7 @@ What are we going to learn?
 - string methods
 - some data cleaning using `apply`
 
-1 - How to read in csvs and find out how many songs from 1981
+### How to read in csvs
 ```python
 >>> from pandas import read_csv
 >>> rock_data = read_csv('rock.csv')
@@ -275,7 +276,10 @@ What are we going to learn?
 >>> rock_data['Song Clean']
 - I can filter
 # Think about the [] brackets like a WHERE clause
+How many songs were released in 1981?
 >>> release_years = release_years[release_years['Release Year']=='1981']
+# Compound WHERE
+>>> users[(users.sex == 'F') | (users.age < 30)]
 To get the count of the rows,
 >>> len(release_years.index)
 61, this includes the header
@@ -336,3 +340,10 @@ e.g.:
 >>> rock_data["Release Year Clean"].min()
 1955
 ```
+
+## Python Data Science Worksheet 2
+## Objectives
+- practice using Pandas
+- learn about groupby, concat, merge, stat
+
+### Exercises
