@@ -256,6 +256,12 @@ HINT: use builtin sorted() function
 ```
 
 ## Pandas Makes Life Easier
+What are we going to learn?
+- how to read in data from a csv
+- how to filter and slice DataFrames
+- how to get aggregate counts
+- how to apply functions to entire columns
+
 1. How to read in csvs and find out how many songs from 1981
 ```python
 >>> from pandas import read_csv
@@ -272,5 +278,15 @@ To get the count of the rows,
 2. Let's learn some more useful functions of DataFrames: value_counts
 Top 10 most prolific artists?
 - more filtering and slicing
+```python
+>>> rock_data['ARTIST CLEAN'].value_counts()
+>>> rock_data['ARTIST CLEAN'].values_counts()[:10]
+```
 
-3. How many songs contain the word 'Rock' in it?
+3. How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
+```python
+# first lowercase
+>>> lowercase_song_titles = rock_data['Song Clean'].apply(lambda x: x.lower())
+>>> contains_rock = lowercase_song_titles.str.contains('rock')
+>>> contains_rock[contains_rock]
+```
