@@ -256,8 +256,22 @@ What are we going to learn?
 ```python
 >>> from pandas import read_csv
 >>> rock_data = read_csv('rock.csv')
-rock data is a DataFrame, super powerful data structure that has some of the traits of lists but with a lot more functionality, as we'll find out
->>> release_years = rock_data[['Release Year',]]
+# rock data is a DataFrame, super powerful data structure that has some of the traits of lists but with a lot more functionality, as we'll find out
+- I can slice
+>>> rock_data[:20]
+# I can limit it to just the columns I care about, still a DataFrame
+>>> rock_data[['Song Clean', 'Release Year']]
+# I can limit it to columns and slice
+>>> rock_data[['Song Clean', 'Release Year']][:20]
+>>> rock_data[:20][['Song Clean', 'Release Year']]
+# Use .ix to index on multiple dimensions
+# ix supports mixed integer and label based access
+>>> rock_data.ix[0:20, ['Song Clean', 'Release Year']]
+- I can just take a look at one column, this is a Series
+>>> rock_data[['Song Clean']]
+# VS
+>>> rock_data['Song Clean']
+- I can filter
 # Think about the [] brackets like a WHERE clause
 >>> release_years = release_years[release_years['Release Year']=='1981']
 To get the count of the rows,
@@ -291,10 +305,14 @@ also tail()!
 - lower
 - upper
 - strip
-e.g.
+
+e.g.:
 ```
 >>> rock_data['Title'] = rock_data['Song Clean'].apply(lambda x: x.lower())
+>>> starts_with_party = rock_data['Song Clean'].str.startswith('Party')
+>>> uppercase_song_titles = rock_data['Song Clean'].str.upper()
 ```
+
 4 - What is the earliest release year in the data?
 - We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
 - Learn how to add columns to the DataFrame.
