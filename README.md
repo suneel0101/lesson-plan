@@ -48,9 +48,7 @@ Hello, world!
 ## Basic Problems
 
 
-1. Write a function that prints all the even numbers between 1 and 10,000.
-This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
-
+1. Write a function that prints all the even numbers between 1 and 10,000. This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
 ```python
 def print_even_numbers():
     for x in xrange(10001):
@@ -67,8 +65,7 @@ def divisible_by_3():
            numbers.append(x)
     return numbers
 ```
-3. The same as 2a, but use Python list comprehensions.
-This reviews/tests LIST COMPREHENSIONS
+3. The same as 2a, but use Python list comprehensions. This reviews/tests LIST COMPREHENSIONS
 ```python
 def divisible_by_3():
     return [x for x in xrange(10001) if x % 3 == 0]
