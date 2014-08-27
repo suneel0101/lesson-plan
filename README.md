@@ -134,7 +134,7 @@ def get_most_popular_order_data(order_list):
 ### Instructions for Windows: http://docs.continuum.io/anaconda/install.html#windows-install
 ### Setting up your environment: `conda` command line tool:
 ```bash
-conda create -n ga-python pandas
+conda create -n ga-python pandas matplotlib ipython
 source activate ga-python
 python
 >>> import pandas
@@ -151,6 +151,7 @@ python
 1 - Using csv library, read in data from https://raw.githubusercontent.com/suneel0101/data/master/classic-rock/classic-rock-song-list.csv
 HINT: Here's the relevant documentation on csv: https://docs.python.org/2/library/csv.html, use `DictReader`
 ```
+$ ipython -pylab
 >>> import csv
 >>> csvfile = open('rock.csv', 'rb')
 >>> reader = csv.DictReader(csvfile)
@@ -334,11 +335,18 @@ e.g.:
 >>> def is_before_1900(year):
 ...     return int(year) < 1900
 # removes string outliers and year outliers like 1071 and turns year into an int
->>> clean_year = lambda year: 9999 if not is_number(year) or is_before_1900(year) else int(year)
+>>> clean_year = lambda year: None if not is_number(year) or is_before_1900(year) else int(year)
 >>> rock_data["Release Year Clean"] = rock_data["Release Year"].apply(clean_year)
-# Use .min() function of dataframes, veryuseful!
+# Use .min() function of dataframes, very useful!
 >>> rock_data["Release Year Clean"].min()
 1955
+```
+
+5 - Plot year against number of songs released in that year
+- learn about plots
+```python
+>>> series = rock_data['Release Year Clean'].value_counts()
+>>> series.plot(color='blue', kind='bar')
 ```
 
 ## Python Data Science Worksheet 2
@@ -347,3 +355,6 @@ e.g.:
 - learn about groupby, concat, merge, stat
 
 ### Exercises
+
+
+## What We Learned
