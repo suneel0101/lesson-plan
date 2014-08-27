@@ -376,14 +376,10 @@ e.g.:
 >>> series.plot(color='blue', kind='bar')
 ```
 
-6 -
-- learn groupby
-
 9:20
 ## Python Data Science Worksheet 2
 ## Objectives
 - practice using Pandas
-- learn about groupby, concat, merge, stat
 
 ### Exercises
 Download csv from https://github.com/suneel0101/lesson-plan/blob/master/crunchbase_monthly_export.csv
