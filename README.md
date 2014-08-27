@@ -1,4 +1,8 @@
 6:00
+## Introduce myself
+- Hi everyone, my name is Suneel and I'm excited to teach you guys more Python and getting you started on some data science.
+- Just tell you a quick bit about myself. I studied Math and Chinese at Havard for undegrad, was a developer at Yipit, the daily deal aggregator for about 2 years, and left to do my own startup.
+
 ## What is this class about?
 By the end of the class you should have
 - learn some more advanced Python techniques
