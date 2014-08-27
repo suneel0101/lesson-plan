@@ -1,4 +1,4 @@
-# What is this class about?
+## What is this class about?
 By the end of the class you should have
 - learn some more advanced Python techniques
 - become comfortable with the Pandas data analysis library
@@ -7,10 +7,10 @@ By the end of the class you should have
 Anytime I've taken a workshop, I found the teacher lectured too much and I didn't get enough hands-on experience.
 I'm a big believer in learning by doing, so we'll be coding a lot of the workshop.
 
-# Gauge Python Levels
+## Gauge Python Levels
 - How many have gone through Intro Python course/ Learn Python the Hard Way?
 
-# Shell vs Scripting Python [5]
+## Shell vs Scripting Python [5]
 Ask: What's the difference?
 
 Shell:
@@ -149,12 +149,12 @@ python
 >>> import pandas
 ```
 
-# Python Data Science Worksheet 1
+## Python Data Science Worksheet 1
 ## Objectives
 - use csv library to read in data
 - use pure Python techniques to extract insights about the data
 
-## Exercises
+### Exercises
 1. Using csv library, read in data from https://raw.githubusercontent.com/suneel0101/data/master/classic-rock/classic-rock-song-list.csv
 HINT: Here's the relevant documentation on csv: https://docs.python.org/2/library/csv.html, use `DictReader`
 ```
@@ -181,13 +181,13 @@ HINT: Here's the relevant documentation on csv: https://docs.python.org/2/librar
 3. What is the earliest release year in the data?
 HINT: You might have to account for/clean up dirty data
 
-### First pass
+#### First pass
 ```
 >>> min([int(row['Release Year']) for row in rows if row['Release Year']])
 ValueError: invalid literal for int() with base 10: 'SONGFACTS.COM'
 ```
 
-### Second pass
+#### Second pass
 ```
 >>> def is_valid_year(value):
 ...     try:
@@ -205,7 +205,7 @@ ValueError: invalid literal for int() with base 10: 'SONGFACTS.COM'
 
 This doesn't make any sense! Exclude that!
 
-### Third pass
+#### Third pass
 ```
 >>> def is_valid_year(value):
 ...     try:
@@ -221,7 +221,6 @@ This doesn't make any sense! Exclude that!
 ```
 
 That makes much more sense!
-
 
 4. What are the top 20 songs by play count
 HINT: use builtin sorted() function
@@ -299,6 +298,11 @@ Discuss and demonstrate [5]:
 -lower
 -upper
 -strip
+- how to add columns to the DataFrame
+e.g.
+```
+>>> rock_data['Title'] = rock_data['Song Clean'].apply(lambda x: x.lower())
+```
 
 4. What is the earliest release year in the data?
 We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
