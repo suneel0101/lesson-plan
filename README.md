@@ -147,7 +147,7 @@ python
 
 ### Exercises
 
-1. Using csv library, read in data from https://raw.githubusercontent.com/suneel0101/data/master/classic-rock/classic-rock-song-list.csv
+1 - Using csv library, read in data from https://raw.githubusercontent.com/suneel0101/data/master/classic-rock/classic-rock-song-list.csv
 HINT: Here's the relevant documentation on csv: https://docs.python.org/2/library/csv.html, use `DictReader`
 ```
 >>> import csv
@@ -156,18 +156,18 @@ HINT: Here's the relevant documentation on csv: https://docs.python.org/2/librar
 >>> dir(reader)
 >>> reader.filenames
 ```
-2. How many songs are from 1981?
+2 - How many songs are from 1981?
 ```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] == '1981'])
 61
 ```
-3. How many songs are from before 1984
+3 - How many songs are from before 1984
 ```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] < '1981'])
 ```
-4. What is the earliest release year in the data?
+4 - What is the earliest release year in the data?
 HINT: You might have to account for/clean up dirty data
 
 #### First pass
@@ -210,14 +210,14 @@ This doesn't make any sense! Exclude that!
 ```
 
 That makes much more sense!
-5. What are the top 20 songs by play count
+5 - What are the top 20 songs by play count
 HINT: use builtin sorted() function
 ```
 >>> top_20_rows_by_play_count = sorted(rows, key=lambda row: row['PlayCount'], reverse=True)[:20]
 >>> top_20_play_count_song_names = [row['Song Clean'] for row in top_20_rows_by_play_count]
 ["(Don't Fear) The Reaper", 'Layla', 'Back In Black', 'All Right Now', 'Refugee', 'Bad Company', 'Gimme Shelter', "Runnin' Down a Dream", "Jamie's Cryin'", 'Sweet Home Alabama', 'Foreplay (Long Time)', 'Over the Hills and Far Away', 'Who Are You', 'Lights', 'In the Air Tonight', 'Come Sail Away', 'Highway To Hell', 'Rock and Roll', 'Comfortably Numb', "Rock 'n' Roll Fantasy"]
 ```
-6. Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
+6 - Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
 >>> from collections import Counter
@@ -226,13 +226,13 @@ HINT: use builtin sorted() function
 >>> artists_ordered_by_play_count[:10]
 [('The Beatles', 100), ('Led Zeppelin', 69), ('Rolling Stones', 55), ('Van Halen', 44), ('Pink Floyd', 39), ('Aerosmith', 31), ('The Who', 31), ('Tom Petty & The Heartbreakers', 29), ('AC/DC', 29), ('Bob Seger', 24)]
 ```
-7. How many different artists appear in the data?
+7 - How many different artists appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
 >>> len(set(artists))
 475
 ```
-8. How many songs does 'Rock'/'rock' appear in the title of?
+8 - How many songs does 'Rock'/'rock' appear in the title of?
 ```
 >>> with_rock_in_title = [row for row in rows if 'rock' in row['Song Clean'].lower()]
 >>> len(with_rock_in_title)
@@ -248,7 +248,7 @@ What are we going to learn?
 - string methods
 - some data cleaning using `apply`
 
-1. How to read in csvs and find out how many songs from 1981
+1 - How to read in csvs and find out how many songs from 1981
 ```python
 >>> from pandas import read_csv
 >>> rock_data = read_csv('rock.csv')
@@ -260,7 +260,7 @@ To get the count of the rows,
 >>> len(release_years.index)
 61, this includes the header
 ```
-2. Let's learn some more useful functions of DataFrames: value_counts
+2 - Let's learn some more useful functions of DataFrames: value_counts
 Top 10 most prolific artists?
 - more filtering and slicing
 ```python
@@ -269,7 +269,7 @@ Top 10 most prolific artists?
 >>> rock_data['ARTIST CLEAN'].values_counts().head()
 also tail()!
 ```
-3. How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
+3 - How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
 ```python
 # first lowercase
 >>> lowercase_song_titles = rock_data['Song Clean'].apply(lambda x: x.lower())
@@ -286,5 +286,5 @@ e.g.
 ```
 >>> rock_data['Title'] = rock_data['Song Clean'].apply(lambda x: x.lower())
 ```
-4. What is the earliest release year in the data?
+4 - What is the earliest release year in the data?
 We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
