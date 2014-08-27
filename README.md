@@ -257,6 +257,7 @@ What are we going to learn?
 >>> from pandas import read_csv
 >>> rock_data = read_csv('rock.csv')
 # rock data is a DataFrame, super powerful data structure that has some of the traits of lists but with a lot more functionality, as we'll find out
+# DataFrame is a 2-dimensional labeled data structure with columns of potentially different types. You can think of it like a spreadsheet or SQL table, or a dict of Series objects.
 - I can slice
 >>> rock_data[:20]
 # I can limit it to just the columns I care about, still a DataFrame
@@ -268,6 +269,7 @@ What are we going to learn?
 # ix supports mixed integer and label based access
 >>> rock_data.ix[0:20, ['Song Clean', 'Release Year']]
 - I can just take a look at one column, this is a Series
+# Series is a one-dimensional labeled array capable of holding any data type
 >>> rock_data[['Song Clean']]
 # VS
 >>> rock_data['Song Clean']
