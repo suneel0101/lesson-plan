@@ -48,14 +48,14 @@ Hello, world!
 ## Basic Problems
 
 
-### 1 - Write a function that prints all the even numbers between 1 and 10,000. This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
+1 - Write a function that prints all the even numbers between 1 and 10,000. This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
 ```python
 def print_even_numbers():
     for x in xrange(10001):
         if x % 2 == 0:
            print x
 ```
-### 2 - Write a function that returns a list of the numbers between 1 and 10,000 that are divisible by 3.
+2 - Write a function that returns a list of the numbers between 1 and 10,000 that are divisible by 3.
 ```python
 This reviews basic use of LISTS
 def divisible_by_3():
@@ -65,12 +65,12 @@ def divisible_by_3():
            numbers.append(x)
     return numbers
 ```
-### 3 - The same as 2a, but use Python list comprehensions. This reviews/tests LIST COMPREHENSIONS
+3 - The same as #2, but use Python list comprehensions. This reviews/tests LIST COMPREHENSIONS
 ```python
 def divisible_by_3():
     return [x for x in xrange(10001) if x % 3 == 0]
 ```
-### 4 - Write a function that takes a list of numbers and returns the max of those numbers, don't ues the max() function.
+4 - Write a function that takes a list of numbers and returns the max of those numbers, don't ues the max() function.
 ```python
 def get_max(numbers):
     max_number = numbers[0]
@@ -79,23 +79,23 @@ def get_max(numbers):
            max_number = number
     return max_number
 ```
-### 5 - Use the max() function to achieve the same functionality
+5 - Use the max() function to achieve the same functionality
 ```python
 def get_max(numbers):
     return max(numbers)
 ```
-### 6 - Write a function that returns True if a number is odd or divisble by 7 and False otherwise.
+6 - Write a function that returns True if a number is odd or divisble by 7 and False otherwise.
 ```python
 def is_odd_or_div_by_7(number):
     return (number % 2 == 1 or number % 7 == 0)
 ```
-### 7 - Use the function in 4 and list comprehensions to write a function that given a list of numbers returns a sublist of numbers
+7 - Use the function in #6 and list comprehensions to write a function that given a list of numbers returns a sublist of numbers
 that are odd or divisible by 7.
 ```python
 def get_sublist_of_numbers_odd_or_div_by_7(numbers):
     return [number for number in numbers if is_odd_or_div_by(number)]
 ```
-### 8 - Given a list of food orders, e.g. ["burger", "fries", "burger", "tenders", "apple pie"], write a function that takes the list
+8 - Given a list of food orders, e.g. ["burger", "fries", "burger", "tenders", "apple pie"], write a function that takes the list
 and returns a dictionary with the different dishes as keys and the number of times they appear in the list as the values. For example,
 Takes ["burger", "fries", "burger", "tenders", "apple pie"] and turns it into
 {
@@ -114,14 +114,14 @@ def aggregate_counts(order_list):
            orders_by_count[order] = 1
     return orders_by_count
 ```
-### 9 - Use collections.Counter to achieve the same functionality.
+9 - Use collections.Counter to achieve the same functionality.
 ```python
 from collections import Counter
 
 def aggregate_counts(order_list):
     return Counter(order_list)
 ```
-### 10 - Write a function that takes the same kind of input as in 1 but instead of returning a dictionary with the counts, it just returns a tuple: the dish that appears the most in the list and the number of times it appears in the list. So the output given the example would be ("burger", 2)
+10 - Write a function that takes the same kind of input as in #9 but instead of returning a dictionary with the counts, it just returns a tuple: the dish that appears the most in the list and the number of times it appears in the list. So the output given the example would be ("burger", 2)
 
 ```python
 def get_most_popular_order_data(order_list):
