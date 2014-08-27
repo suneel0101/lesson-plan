@@ -43,7 +43,7 @@ Hello, world!
 - Let's start with a few basic Python problems to warm up and also to get a sense of your Python level
 
 ## Basic Problems
-1. Write a function that takes prints all the even numbers between 1 and 10,000. [5]
+1. Write a function that prints all the even numbers between 1 and 10,000. [5]
 This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
 
 ```python
@@ -248,7 +248,21 @@ HINT: use builtin sorted() function
 ```
 
 ## Pandas Makes Life Easier
-1. How to read in csvs
-2. dir() functions that are good
-3. Filtering
-4. Slicing
+1. How to read in csvs and find out how many songs from 1981
+```python
+>>> from pandas import read_csv
+>>> rock_data = read_csv('rock.csv')
+rock data is a DataFrame, super powerful data structure that has some of the traits of lists but with a lot more functionality, as we'll find out
+>>> release_years = rock_data[['Release Year',]]
+# Think about the [] brackets like a WHERE clause
+>>> release_years = release_years[release_years['Release Year']=='1981']
+To get the count of the rows,
+>>> len(release_years.index)
+61, this includes the header
+```
+
+2. Let's learn some more useful functions of DataFrames: value_counts
+Top 10 most prolific artists?
+- more filtering and slicing
+
+3. How many songs contain the word 'Rock' in it?
