@@ -210,6 +210,7 @@ This doesn't make any sense! Exclude that!
 ```
 
 That makes much more sense!
+
 5 - What are the top 20 songs by play count
 HINT: use builtin sorted() function
 ```
@@ -217,6 +218,7 @@ HINT: use builtin sorted() function
 >>> top_20_play_count_song_names = [row['Song Clean'] for row in top_20_rows_by_play_count]
 ["(Don't Fear) The Reaper", 'Layla', 'Back In Black', 'All Right Now', 'Refugee', 'Bad Company', 'Gimme Shelter', "Runnin' Down a Dream", "Jamie's Cryin'", 'Sweet Home Alabama', 'Foreplay (Long Time)', 'Over the Hills and Far Away', 'Who Are You', 'Lights', 'In the Air Tonight', 'Come Sail Away', 'Highway To Hell', 'Rock and Roll', 'Comfortably Numb', "Rock 'n' Roll Fantasy"]
 ```
+
 6 - Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
@@ -226,12 +228,14 @@ HINT: use builtin sorted() function
 >>> artists_ordered_by_play_count[:10]
 [('The Beatles', 100), ('Led Zeppelin', 69), ('Rolling Stones', 55), ('Van Halen', 44), ('Pink Floyd', 39), ('Aerosmith', 31), ('The Who', 31), ('Tom Petty & The Heartbreakers', 29), ('AC/DC', 29), ('Bob Seger', 24)]
 ```
+
 7 - How many different artists appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
 >>> len(set(artists))
 475
 ```
+
 8 - How many songs does 'Rock'/'rock' appear in the title of?
 ```
 >>> with_rock_in_title = [row for row in rows if 'rock' in row['Song Clean'].lower()]
