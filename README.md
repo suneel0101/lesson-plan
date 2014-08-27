@@ -1,3 +1,4 @@
+6:00
 ## What is this class about?
 By the end of the class you should have
 - learn some more advanced Python techniques
@@ -42,6 +43,7 @@ Then in the terminal, run
 $ python test.py
 Hello, world!
 
+6:15
 # Python Warm Up and Diagnostic
 - Let's start with a few basic Python problems to warm up and also to get a sense of your Python level
 
@@ -65,6 +67,7 @@ def divisible_by_3():
            numbers.append(x)
     return numbers
 ```
+6:30
 3 - The same as #2, but use Python list comprehensions. This reviews/tests LIST COMPREHENSIONS
 ```python
 def divisible_by_3():
@@ -79,6 +82,7 @@ def get_max(numbers):
            max_number = number
     return max_number
 ```
+6:45
 5 - Use the max() function to achieve the same functionality
 ```python
 def get_max(numbers):
@@ -89,12 +93,14 @@ def get_max(numbers):
 def is_odd_or_div_by_7(number):
     return (number % 2 == 1 or number % 7 == 0)
 ```
+6:55
 7 - Use the function in #6 and list comprehensions to write a function that given a list of numbers returns a sublist of numbers
 that are odd or divisible by 7.
 ```python
 def get_sublist_of_numbers_odd_or_div_by_7(numbers):
     return [number for number in numbers if is_odd_or_div_by(number)]
 ```
+7:00
 8 - Given a list of food orders, e.g. ["burger", "fries", "burger", "tenders", "apple pie"], write a function that takes the list
 and returns a dictionary with the different dishes as keys and the number of times they appear in the list as the values. For example,
 Takes ["burger", "fries", "burger", "tenders", "apple pie"] and turns it into
@@ -114,6 +120,7 @@ def aggregate_counts(order_list):
            orders_by_count[order] = 1
     return orders_by_count
 ```
+7:10
 9 - Use collections.Counter to achieve the same functionality.
 ```python
 from collections import Counter
@@ -129,6 +136,7 @@ def get_most_popular_order_data(order_list):
     return max(agg_accounts.iteritems(), key=lambda: agg_count[1])
 ```
 
+7:15
 ## Now let's get ready for Data Science. Install Anacondas
 ### Instructions for Mac: http://docs.continuum.io/anaconda/install.html#mac-install
 ### Instructions for Windows: http://docs.continuum.io/anaconda/install.html#windows-install
@@ -140,6 +148,7 @@ python
 >>> import pandas
 ```
 
+7:25
 ## Python Data Science Worksheet 1
 ## Objectives
 - use csv library to read in data
@@ -158,17 +167,20 @@ $ ipython -pylab
 >>> dir(reader)
 >>> reader.filenames
 ```
+7:35
 2 - How many songs are from 1981?
 ```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] == '1981'])
 61
 ```
+7:40
 3 - How many songs are from before 1984
 ```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] < '1981'])
 ```
+7:45
 4 - What is the earliest release year in the data?
 HINT: You might have to account for/clean up dirty data
 
@@ -213,6 +225,7 @@ This doesn't make any sense! Exclude that!
 
 That makes much more sense!
 
+8:00
 5 - What are the top 20 songs by play count
 HINT: use builtin sorted() function
 ```
@@ -220,7 +233,7 @@ HINT: use builtin sorted() function
 >>> top_20_play_count_song_names = [row['Song Clean'] for row in top_20_rows_by_play_count]
 ["(Don't Fear) The Reaper", 'Layla', 'Back In Black', 'All Right Now', 'Refugee', 'Bad Company', 'Gimme Shelter', "Runnin' Down a Dream", "Jamie's Cryin'", 'Sweet Home Alabama', 'Foreplay (Long Time)', 'Over the Hills and Far Away', 'Who Are You', 'Lights', 'In the Air Tonight', 'Come Sail Away', 'Highway To Hell', 'Rock and Roll', 'Comfortably Numb', "Rock 'n' Roll Fantasy"]
 ```
-
+8:10
 6 - Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
@@ -230,14 +243,14 @@ HINT: use builtin sorted() function
 >>> artists_ordered_by_play_count[:10]
 [('The Beatles', 100), ('Led Zeppelin', 69), ('Rolling Stones', 55), ('Van Halen', 44), ('Pink Floyd', 39), ('Aerosmith', 31), ('The Who', 31), ('Tom Petty & The Heartbreakers', 29), ('AC/DC', 29), ('Bob Seger', 24)]
 ```
-
+8:20
 7 - How many different artists appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
 >>> len(set(artists))
 475
 ```
-
+8:25
 8 - How many songs does 'Rock'/'rock' appear in the title of?
 ```
 >>> with_rock_in_title = [row for row in rows if 'rock' in row['Song Clean'].lower()]
@@ -245,6 +258,7 @@ HINT: use builtin sorted() function
 60
 ```
 
+8:30
 ## Pandas Makes Life Easier
 What are we going to learn?
 - how to read in data from a csv
@@ -285,6 +299,7 @@ To get the count of the rows,
 >>> len(release_years.index)
 61, this includes the header
 ```
+8:40
 2 - Let's learn some more useful functions of DataFrames: value_counts
 Top 10 most prolific artists?
 - more filtering and slicing
@@ -294,6 +309,7 @@ Top 10 most prolific artists?
 >>> rock_data['ARTIST CLEAN'].values_counts().head()
 also tail()!
 ```
+8:45
 3 - How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
 - Explain lambda functions!
 - Learn how to use DataFrame.apply
@@ -307,6 +323,7 @@ also tail()!
 >>> contains_rock[contains_rock]
 ```
 
+9:00
 ### Some useful string methods
 - startswith
 - lower
@@ -320,6 +337,7 @@ e.g.:
 >>> uppercase_song_titles = rock_data['Song Clean'].str.upper()
 ```
 
+9:05
 4 - What is the earliest release year in the data?
 - We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
 - Learn how to add columns to the DataFrame.
@@ -342,6 +360,7 @@ e.g.:
 1955
 ```
 
+9:10
 5 - Plot year against number of songs released in that year
 - learn about plots
 ```python
@@ -349,6 +368,10 @@ e.g.:
 >>> series.plot(color='blue', kind='bar')
 ```
 
+6 -
+- learn groupby
+
+9:20
 ## Python Data Science Worksheet 2
 ## Objectives
 - practice using Pandas
@@ -356,5 +379,28 @@ e.g.:
 
 ### Exercises
 
-
 ## What We Learned
+
+### Python
+- list comprehensions
+- list comprehensions with conditions
+- sets
+- lambda functions
+- Counter
+
+
+### Pandas
+- dataframes
+- series
+- .apply()
+- min()
+- string methods
+- filtering
+- compound filtering
+- slicing
+- adding new columns
+- selecting specific columns
+- plotting
+- cleaning data
+- value_counts
+- groupby
