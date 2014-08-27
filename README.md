@@ -274,21 +274,45 @@ Top 10 most prolific artists?
 also tail()!
 ```
 3 - How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
+- Explain lambda functions!
+- Learn how to use DataFrame.apply
 ```python
-# first lowercase
+# first lowercase the song titles
 >>> lowercase_song_titles = rock_data['Song Clean'].apply(lambda x: x.lower())
+# then get a True/False column of whether the title contains 'rock' or not
 >>> contains_rock = lowercase_song_titles.str.contains('rock')
+# filter down to just where contains_rock is True
+>>> contains_rock[contains_rock == True]
 >>> contains_rock[contains_rock]
 ```
-Discuss and demonstrate [5]:
--startswith
--lower
--upper
--strip
-- how to add columns to the DataFrame
+
+### Some useful string methods
+- startswith
+- lower
+- upper
+- strip
 e.g.
 ```
 >>> rock_data['Title'] = rock_data['Song Clean'].apply(lambda x: x.lower())
 ```
 4 - What is the earliest release year in the data?
-We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
+- We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
+- Learn how to add columns to the DataFrame.
+```python
+>>> def is_number(year):
+...     try:
+...         int(year)
+...     except ValueError:
+...         return False
+...     else:
+...         return True
+...
+>>> def is_before_1900(year):
+...     return int(year) < 1900
+# removes string outliers and year outliers like 1071 and turns year into an int
+>>> clean_year = lambda year: 9999 if not is_number(year) or is_before_1900(year) else int(year)
+>>> rock_data["Release Year Clean"] = rock_data["Release Year"].apply(clean_year)
+# Use .min() function of dataframes, veryuseful!
+>>> rock_data["Release Year Clean"].min()
+1955
+```
