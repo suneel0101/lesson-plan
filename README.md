@@ -47,8 +47,8 @@ Hello, world!
 
 ## Basic Problems
 
-1. Write a function that prints all the even numbers between 1 and 10,000.
 
+1. Write a function that prints all the even numbers between 1 and 10,000.
 This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
 
 ```python
