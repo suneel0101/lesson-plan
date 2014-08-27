@@ -173,10 +173,10 @@ HINT: Here's the relevant documentation on csv: https://docs.python.org/2/librar
 ```
 
 2b. How many songs are from before 1984
-111
+```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] < '1981'])
-111
+```
 
 3. What is the earliest release year in the data?
 HINT: You might have to account for/clean up dirty data
