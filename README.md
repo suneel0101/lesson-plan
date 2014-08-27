@@ -229,6 +229,7 @@ HINT: use builtin sorted() function
 >>> top_20_rows_by_play_count = sorted(rows, key=lambda row: row['PlayCount'], reverse=True)[:20]
 >>> top_20_play_count_song_names = [row['Song Clean'] for row in top_20_rows_by_play_count]
 ["(Don't Fear) The Reaper", 'Layla', 'Back In Black', 'All Right Now', 'Refugee', 'Bad Company', 'Gimme Shelter', "Runnin' Down a Dream", "Jamie's Cryin'", 'Sweet Home Alabama', 'Foreplay (Long Time)', 'Over the Hills and Far Away', 'Who Are You', 'Lights', 'In the Air Tonight', 'Come Sail Away', 'Highway To Hell', 'Rock and Roll', 'Comfortably Numb', "Rock 'n' Roll Fantasy"]
+```
 
 5. Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
 ```
