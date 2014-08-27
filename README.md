@@ -101,7 +101,7 @@ def get_sublist_of_numbers_odd_or_div_by_7(numbers):
 ```
 
 ## Intermediate Problems
-1a. [5] Given a list of food orders, e.g. ["burger", "fries", "burger", "tenders", "apple pie"], write a function that takes the list
+6. [5] Given a list of food orders, e.g. ["burger", "fries", "burger", "tenders", "apple pie"], write a function that takes the list
 and returns a dictionary with the different dishes as keys and the number of times they appear in the list as the values. For example,
 Takes ["burger", "fries", "burger", "tenders", "apple pie"] and turns it into
 {
@@ -122,7 +122,7 @@ def aggregate_counts(order_list):
 ```
 
 
-1b. [2] Use collections.Counter to achieve the same functionality.
+7. [2] Use collections.Counter to achieve the same functionality.
 ```python
 from collections import Counter
 
@@ -130,7 +130,7 @@ def aggregate_counts(order_list):
     return Counter(order_list)
 ```
 
-2. [5] Write a function that takes the same kind of input as in 1 but instead of returning a dictionary with the counts, it just returns a tuple: the dish that appears the most in the list and the number of times it appears in the list. So the output given the example would be ("burger", 2)
+8. [5] Write a function that takes the same kind of input as in 1 but instead of returning a dictionary with the counts, it just returns a tuple: the dish that appears the most in the list and the number of times it appears in the list. So the output given the example would be ("burger", 2)
 
 ```python
 def get_most_popular_order_data(order_list):
