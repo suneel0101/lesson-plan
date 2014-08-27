@@ -13,7 +13,8 @@ I'm a big believer in learning by doing, so we'll be coding a lot of the worksho
 ## Shell vs Scripting Python
 Ask: What's the difference?
 
-Shell:
+### Shell:
+
 1. Open Terminal
 2. run
 ```bash
@@ -25,7 +26,9 @@ Hello
 >>> exit()
 $
 ```
-3.
+
+### Scripting
+Run:
 ```bash
 $ mkdir ~/Documents/ga-python-data-science
 $ cd ~/Documents/ga-python-data-science
