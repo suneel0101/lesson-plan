@@ -43,6 +43,7 @@ Hello, world!
 - Let's start with a few basic Python problems to warm up and also to get a sense of your Python level
 
 ## Basic Problems
+
 1. Write a function that prints all the even numbers between 1 and 10,000.
 
 This reviews FOR LOOPS, IF CONDITIONS, and PRINTING
@@ -53,7 +54,6 @@ def print_even_numbers():
         if x % 2 == 0:
            print x
 ```
-
 2. Write a function that returns a list of the numbers between 1 and 10,000 that are divisible by 3.
 ```python
 This reviews basic use of LISTS
@@ -64,14 +64,12 @@ def divisible_by_3():
            numbers.append(x)
     return numbers
 ```
-
 3. The same as 2a, but use Python list comprehensions.
 This reviews/tests LIST COMPREHENSIONS
 ```python
 def divisible_by_3():
     return [x for x in xrange(10001) if x % 3 == 0]
 ```
-
 4. Write a function that takes a list of numbers and returns the max of those numbers, don't ues the max() function.
 ```python
 def get_max(numbers):
@@ -81,27 +79,22 @@ def get_max(numbers):
            max_number = number
     return max_number
 ```
-
 5. Use the max() function to achieve the same functionality
 ```python
 def get_max(numbers):
     return max(numbers)
 ```
-
 6. Write a function that returns True if a number is odd or divisble by 7 and False otherwise.
 ```python
 def is_odd_or_div_by_7(number):
     return (number % 2 == 1 or number % 7 == 0)
 ```
-
 7. Use the function in 4 and list comprehensions to write a function that given a list of numbers returns a sublist of numbers
 that are odd or divisible by 7.
 ```python
 def get_sublist_of_numbers_odd_or_div_by_7(numbers):
     return [number for number in numbers if is_odd_or_div_by(number)]
 ```
-
-## Intermediate Problems
 8. Given a list of food orders, e.g. ["burger", "fries", "burger", "tenders", "apple pie"], write a function that takes the list
 and returns a dictionary with the different dishes as keys and the number of times they appear in the list as the values. For example,
 Takes ["burger", "fries", "burger", "tenders", "apple pie"] and turns it into
@@ -121,8 +114,6 @@ def aggregate_counts(order_list):
            orders_by_count[order] = 1
     return orders_by_count
 ```
-
-
 9. Use collections.Counter to achieve the same functionality.
 ```python
 from collections import Counter
@@ -130,7 +121,6 @@ from collections import Counter
 def aggregate_counts(order_list):
     return Counter(order_list)
 ```
-
 10. Write a function that takes the same kind of input as in 1 but instead of returning a dictionary with the counts, it just returns a tuple: the dish that appears the most in the list and the number of times it appears in the list. So the output given the example would be ("burger", 2)
 
 ```python
@@ -156,6 +146,7 @@ python
 - use pure Python techniques to extract insights about the data
 
 ### Exercises
+
 1. Using csv library, read in data from https://raw.githubusercontent.com/suneel0101/data/master/classic-rock/classic-rock-song-list.csv
 HINT: Here's the relevant documentation on csv: https://docs.python.org/2/library/csv.html, use `DictReader`
 ```
@@ -165,21 +156,18 @@ HINT: Here's the relevant documentation on csv: https://docs.python.org/2/librar
 >>> dir(reader)
 >>> reader.filenames
 ```
-
-2a. How many songs are from 1981?
+2. How many songs are from 1981?
 ```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] == '1981'])
 61
 ```
-
-2b. How many songs are from before 1984
+3. How many songs are from before 1984
 ```
 >>> rows = [row for row in reader]
 >>> len([row for row in rows if row['Release Year'] < '1981'])
 ```
-
-3. What is the earliest release year in the data?
+4. What is the earliest release year in the data?
 HINT: You might have to account for/clean up dirty data
 
 #### First pass
@@ -222,16 +210,14 @@ This doesn't make any sense! Exclude that!
 ```
 
 That makes much more sense!
-
-4. What are the top 20 songs by play count
+5. What are the top 20 songs by play count
 HINT: use builtin sorted() function
 ```
 >>> top_20_rows_by_play_count = sorted(rows, key=lambda row: row['PlayCount'], reverse=True)[:20]
 >>> top_20_play_count_song_names = [row['Song Clean'] for row in top_20_rows_by_play_count]
 ["(Don't Fear) The Reaper", 'Layla', 'Back In Black', 'All Right Now', 'Refugee', 'Bad Company', 'Gimme Shelter', "Runnin' Down a Dream", "Jamie's Cryin'", 'Sweet Home Alabama', 'Foreplay (Long Time)', 'Over the Hills and Far Away', 'Who Are You', 'Lights', 'In the Air Tonight', 'Come Sail Away', 'Highway To Hell', 'Rock and Roll', 'Comfortably Numb', "Rock 'n' Roll Fantasy"]
 ```
-
-5. Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
+6. Who are the top 10 most prolific artists in the data along with the number of their songs that appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
 >>> from collections import Counter
@@ -240,15 +226,13 @@ HINT: use builtin sorted() function
 >>> artists_ordered_by_play_count[:10]
 [('The Beatles', 100), ('Led Zeppelin', 69), ('Rolling Stones', 55), ('Van Halen', 44), ('Pink Floyd', 39), ('Aerosmith', 31), ('The Who', 31), ('Tom Petty & The Heartbreakers', 29), ('AC/DC', 29), ('Bob Seger', 24)]
 ```
-
-6. How many different artists appear in the data?
+7. How many different artists appear in the data?
 ```
 >>> artists = [row['ARTIST CLEAN'] for row in rows]
 >>> len(set(artists))
 475
 ```
-
-7. How many songs does 'Rock'/'rock' appear in the title of?
+8. How many songs does 'Rock'/'rock' appear in the title of?
 ```
 >>> with_rock_in_title = [row for row in rows if 'rock' in row['Song Clean'].lower()]
 >>> len(with_rock_in_title)
@@ -276,7 +260,6 @@ To get the count of the rows,
 >>> len(release_years.index)
 61, this includes the header
 ```
-
 2. Let's learn some more useful functions of DataFrames: value_counts
 Top 10 most prolific artists?
 - more filtering and slicing
@@ -286,7 +269,6 @@ Top 10 most prolific artists?
 >>> rock_data['ARTIST CLEAN'].values_counts().head()
 also tail()!
 ```
-
 3. How many songs contain the word 'Rock'/'rock'/'ROCK' in it?
 ```python
 # first lowercase
@@ -304,6 +286,5 @@ e.g.
 ```
 >>> rock_data['Title'] = rock_data['Song Clean'].apply(lambda x: x.lower())
 ```
-
 4. What is the earliest release year in the data?
 We need to clean the data. Let's use apply. Let's change any nonstring or below 1900 to n/a.
